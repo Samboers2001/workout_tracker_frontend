@@ -1,30 +1,25 @@
 <script>
+	import Exercise from "./components/Exercise.svelte";
+	import Navbar from "./components/Navbar.svelte";
+	import Route from "./components/router/Route.svelte"
+
 	export let name;
 </script>
 
+<svelte:head>
+	<link
+		href={`https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/superhero/bootstrap.min.css`}
+		rel="stylesheet"
+		crossorigin="anonymous"
+	/>
+</svelte:head>
+
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<Navbar />
+	<Route path="/exercise">
+		<Exercise />
+	</Route>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
 </style>

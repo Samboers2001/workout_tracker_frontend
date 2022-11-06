@@ -5,7 +5,10 @@ const baseUrl = "https://localhost:7209/api/exercise"
 export function getAllExercises() {
   debugger
     fetch(baseUrl, {
-        method: "GET"
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json'
+        }
     }).then(res => {
         res.json()
           .then(data => {

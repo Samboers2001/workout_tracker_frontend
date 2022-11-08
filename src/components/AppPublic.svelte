@@ -1,31 +1,56 @@
 <script>
+	import Home from "./Home.svelte";
+	import { Route, navHandler, redirect } from "./router";
+	import Register from "./Register.svelte";
+	import Login from "./Login.svelte";
+	import { account } from "../models/accountModel";
 	import Exercise from "./Exercise.svelte";
-    import Home from "./Home.svelte";
-	import Navbar from "./Navbar.svelte";
-    import Register from "./Register.svelte";
-	import Route from "./router/Route.svelte"
 
-	export let name;
+	let theme = "superhero";
+
+	function handleThemeSwitch() {
+		if (theme === "superhero") {
+			theme = "united";
+		} else if (theme === "united") {
+			theme = "superhero";
+		}
+	}
 </script>
 
+<svelte:window on:popstate={navHandler} />
 <svelte:head>
 	<link
-		href={`https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/superhero/bootstrap.min.css`}
+		href={`https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/${theme}/bootstrap.min.css`}
 		rel="stylesheet"
 		crossorigin="anonymous"
 	/>
 </svelte:head>
-
-<main>
-	<Route path="/exercise">
-		<Exercise />
-	</Route>
-	<Route path="/home">
-		<Home />
-	</Route>
-	<Route path="/register">
-		<Register />
-	</Route></main>
+	<div class="container-fluid">
+	{#if $account}
+		<Route path="/" exact={false}>
+			<Exercise />
+		</Route>
+	{:else}
+		<Route path="/">
+			<Home />
+		</Route>
+		<Route path="/register">
+			<Register />
+		</Route>
+		<Route path="/login">
+			<Login />
+		</Route>	{/if}
+</div>
 
 <style>
+	@media (min-width: 640px) {
+	}
+	.fas {
+		position: absolute;
+		right: 1em;
+		bottom: 1em;
+	}
+	.fas:hover {
+		cursor: pointer;
+	}
 </style>

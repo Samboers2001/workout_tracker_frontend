@@ -25,7 +25,7 @@
 		crossorigin="anonymous"
 	/>
 </svelte:head>
-	<div class="container-fluid">
+<div class="container-fluid">
 	{#if $account}
 		<Route path="/" exact={false}>
 			<Exercise />
@@ -39,7 +39,8 @@
 		</Route>
 		<Route path="/login">
 			<Login />
-		</Route>	{/if}
+		</Route>
+	{/if}
 </div>
 
 <style>

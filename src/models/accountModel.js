@@ -79,3 +79,9 @@ export async function logIn(Email, Password) {
         throw err
     })
 }
+
+export function logOut()
+{
+    account.set()
+    localStorage.setItem("token", "")
+}

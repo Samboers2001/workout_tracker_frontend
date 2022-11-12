@@ -4,7 +4,8 @@
 	import Register from "./Register.svelte";
 	import Login from "./Login.svelte";
 	import { account } from "../models/accountModel";
-	import Exercise from "./Exercise.svelte";
+    import AppSecure from "./AppSecure.svelte";
+    import Exercise from "./Exercise.svelte";
 
 	let theme = "superhero";
 
@@ -28,6 +29,9 @@
 <div class="container-fluid">
 	{#if $account}
 		<Route path="/" exact={false}>
+			<AppSecure />
+		</Route>
+		<Route path="/exercise" exact={false}>
 			<Exercise />
 		</Route>
 	{:else}

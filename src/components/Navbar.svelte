@@ -12,11 +12,17 @@
         DropdownMenu,
         DropdownItem,
     } from "sveltestrap"
+    import { logOut } from "../models/accountModel";
 
     let isOpen = false;
 
     function handleUpdate(event) {
         isOpen = event.detail.isOpen;
+    }
+
+    function handleLogout() {
+      logOut()
+      redirect("/")
     }
 </script>
 
@@ -32,7 +38,7 @@
           <NavLink>Start workout</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink>Templates</NavLink>
+          <NavLink>History</NavLink>
         </NavItem>
         <Dropdown nav inNavbar>
           <DropdownToggle nav caret>Account</DropdownToggle>
@@ -40,7 +46,7 @@
             <DropdownItem>Option 1</DropdownItem>
             <DropdownItem>Option 2</DropdownItem>
             <DropdownItem divider />
-            <DropdownItem>Reset</DropdownItem>
+            <DropdownItem on:click={handleLogout}>Log out</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </Nav>

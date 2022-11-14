@@ -4,18 +4,10 @@
 	import Register from "./Register.svelte";
 	import Login from "./Login.svelte";
 	import { account } from "../models/accountModel";
-    import AppSecure from "./AppSecure.svelte";
-    import Exercise from "./Exercise.svelte";
+	import AppSecure from "./AppSecure.svelte";
+	import Exercise from "./Exercise.svelte";
 
 	let theme = "superhero";
-
-	function handleThemeSwitch() {
-		if (theme === "superhero") {
-			theme = "united";
-		} else if (theme === "united") {
-			theme = "superhero";
-		}
-	}
 </script>
 
 <svelte:window on:popstate={navHandler} />
@@ -27,6 +19,24 @@
 	/>
 </svelte:head>
 <div class="container-fluid">
+	{#if theme === "superhero"}
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<i
+			class=" fa fa-sun-o"
+			on:click={() => {
+				theme = "united";
+			}}
+		/>
+	{:else}
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<i
+		class="fa fa-moon-o"
+			on:click={() => {
+				theme = "superhero";
+			}}
+		/>
+	{/if}
+
 	{#if $account}
 		<Route path="/" exact={false}>
 			<AppSecure />
@@ -50,12 +60,12 @@
 <style>
 	@media (min-width: 640px) {
 	}
-	.fas {
+	.fa {
 		position: absolute;
 		right: 1em;
 		bottom: 1em;
 	}
-	.fas:hover {
+	.fa:hover {
 		cursor: pointer;
 	}
 </style>

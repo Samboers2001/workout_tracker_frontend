@@ -3,7 +3,6 @@
  */
 
 import { checkPassword, hasLowerCase, hasUpperCase, checkEmail, validateEmail } from "../modules/helper.js";
-const puppeteer = require('puppeteer')
 
 test('should return false becease string has no letter in lowercase', () => {
     const result = hasLowerCase("COMPUTER")

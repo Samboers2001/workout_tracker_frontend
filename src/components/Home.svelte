@@ -48,7 +48,7 @@
             Click on register if you do not have an account yet and click on log
             in if you already have an account. Enjoy!
           </p>
-          <Button color="success" on:click={() => redirect("/register")}>
+          <Button id="testbtnId" color="success" on:click={() => redirect("/register")}>
             Register
           </Button>
           <Button color="primary" on:click={() => redirect("/login")}>

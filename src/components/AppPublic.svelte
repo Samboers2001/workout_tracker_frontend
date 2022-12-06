@@ -6,6 +6,7 @@
 	import { account } from "../models/accountModel";
 	import AppSecure from "./AppSecure.svelte";
 	import Exercise from "./Exercise.svelte";
+    import Leaderboard from "./Leaderboard.svelte";
 
 	let theme = "superhero";
 </script>
@@ -43,6 +44,9 @@
 		</Route>
 		<Route path="/exercise" exact={false}>
 			<Exercise />
+		</Route>
+		<Route path="/leaderboard">
+			<Leaderboard />
 		</Route>
 	{:else}
 		<Route path="/">

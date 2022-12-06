@@ -40,6 +40,9 @@
         <NavItem>
           <NavLink>History</NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink path="/leaderboard">Leaderboard</NavLink>
+        </NavItem>
         <Dropdown nav inNavbar>
           <DropdownToggle nav caret>Account</DropdownToggle>
           <DropdownMenu end>

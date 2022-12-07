@@ -4,7 +4,6 @@
     import {exercises, getAllExercises} from "../models/exerciseModel"
 
     onMount( () => {
-        debugger
         getAllExercises()
     })
 </script>

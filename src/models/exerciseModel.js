@@ -3,7 +3,6 @@ export const exercises = writable([])
 const baseUrl = "https://localhost:7209/api/exercise"
 
 export function getAllExercises() {
-  debugger
     fetch(baseUrl, {
         method: "GET",
         headers: {

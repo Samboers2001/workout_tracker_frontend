@@ -12,12 +12,20 @@
         DropdownMenu,
         DropdownItem,
     } from "sveltestrap"
-    import { logOut } from "../models/accountModel";
+    import { deleteAccount, logOut } from "../models/accountModel";
 
     let isOpen = false;
+    let loggedInUserId = (JSON.parse(localStorage.getItem("token")) || {}).id
 
     function handleUpdate(event) {
         isOpen = event.detail.isOpen;
+    }
+
+    function handleDelete() {
+      debugger
+      deleteAccount(loggedInUserId)
+      logOut()
+      redirect("/")
     }
 
     function handleLogout() {
@@ -46,7 +54,7 @@
         <Dropdown nav inNavbar>
           <DropdownToggle nav caret>Account</DropdownToggle>
           <DropdownMenu end>
-            <DropdownItem>Option 1</DropdownItem>
+            <DropdownItem on:click={handleDelete}>Delete account</DropdownItem>
             <DropdownItem>Option 2</DropdownItem>
             <DropdownItem divider />
             <DropdownItem on:click={handleLogout}>Log out</DropdownItem>

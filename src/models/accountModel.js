@@ -7,7 +7,7 @@ let jwtToken;
 
 const authorize = () => {
     if (!jwtToken) {
-        jwtToken = (JSON.parse(localStorage.getItem("token")) || {}).jwtToken
+        jwtToken = (JSON.parse(localStorage.getItem("token")) || {}).token
     }
     if (jwtToken) {
         return true
@@ -78,6 +78,20 @@ export async function logIn(Email, Password) {
     ).catch(err => {
         throw err
     })
+}
+
+export async function deleteAccount(userId) {
+    if (authorize())
+    return fetch(`${baseUrl}/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+            "Content-Type": 'application/json',
+            'Authorization': 'Bearer ' + jwtToken,
+        }
+    })  .catch(error => {
+            console.log(error);
+        });
 }
 
 export function logOut()

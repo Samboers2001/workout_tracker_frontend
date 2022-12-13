@@ -43,7 +43,7 @@
           <NavLink path="/exercise">Exercises</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink>Start workout</NavLink>
+          <NavLink path="/startworkout">Start workout</NavLink>
         </NavItem>
         <NavItem>
           <NavLink>History</NavLink>

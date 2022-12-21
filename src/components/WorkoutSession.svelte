@@ -8,9 +8,6 @@
     const handleStartWorkout = () => {
         startWorkout(workoutName)
     }
-    {
-
-    }
 </script>
 
 <h1>Start workout</h1>

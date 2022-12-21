@@ -25,6 +25,9 @@ export function startWorkout(Name) {
         })
     }).then(res => {
         if (res.ok) {
+            res.json().then((data) => {
+                console.log(data)
+            })
             return null
         } else {
             switch (res.status) {

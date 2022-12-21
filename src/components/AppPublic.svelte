@@ -7,7 +7,7 @@
 	import AppSecure from "./AppSecure.svelte";
 	import Exercise from "./Exercise.svelte";
     import Leaderboard from "./Leaderboard.svelte";
-    import StartWorkout from "./StartWorkout.svelte";
+    import WorkoutSession from "./WorkoutSession.svelte";
 
 	let theme = "superhero";
 </script>
@@ -49,8 +49,8 @@
 		<Route path="/leaderboard">
 			<Leaderboard />
 		</Route>
-		<Route path="/startworkout">
-			<StartWorkout />
+		<Route path="/workoutsession">
+			<WorkoutSession />
 		</Route>
 	{:else}
 		<Route path="/">
